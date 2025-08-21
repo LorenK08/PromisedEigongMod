@@ -35,6 +35,7 @@ public class PromisedEigongMain : BaseUnityPlugin, ICoroutineRunner
     public Harmony Harmony = null!;
     
     public static ConfigEntry<bool> isLvl0Challenge;
+    public static ConfigEntry<bool> isNoDirectDamageChallenge;
     public static ConfigEntry<bool> shufflerChallenge;
     public static ConfigEntry<bool> shouldSkipHub;
     public static ConfigEntry<bool> highContrastEigong;
@@ -87,6 +88,8 @@ public class PromisedEigongMain : BaseUnityPlugin, ICoroutineRunner
     {
         isLvl0Challenge = Config.Bind("Challenge", "LVL0Challenge", false,
             "(STILL WIP) For now, all this does is make the fire damage more forgiving. Makes lvl 0 challenges a little more bearable.");
+        isNoDirectDamageChallenge = Config.Bind("Challenge", "Pacifist Challenge", false,
+            "This challenge forces you to only deal internal damage against Eigong. Any direct damage inflicted will insta kill Yi.");
         shufflerChallenge = Config.Bind("Challenge", "ShufflerChallenge", true,
             "Shuffles every attack transition as an added challenge to prevent AI manipulation.");
         highContrastEigong = Config.Bind("Graphics", "High Contrast Eigong", false,

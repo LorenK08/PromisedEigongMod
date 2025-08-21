@@ -168,7 +168,7 @@ public static class PromisedEigongModGlobalSettings
     {
         public const string PHASE1_2_OST = "BGM_Boss_A11_P3";
         public const string PHASE3_OST = "BGM_EndCredit_NineSols";
-        public const float PHASE3_LOOP_DELAY = 249;
+        public const float PHASE3_LOOP_DELAY = 258;
     }
     
     public static class EigongVFX
@@ -438,10 +438,13 @@ public static class PromisedEigongModGlobalSettings
 
         public const string LVL_O_CHALLENGE_TEXT = "Lvl 0 Challenge";
         public const float LVL_0_CHALLENGE_FONT_SIZE = 20;
+        public const string NO_DIRECT_DAMAGE_CHALLENGE_TEXT = "Pacifist Challenge";
+        public const float NO_DIRECT_DAMAGE_CHALLENGE_FONT_SIZE = 20;
         public static readonly Color LVL_O_CHALLENGE_TEXT_COLOR = new(0.53f, 0.39f, 0.33f);
-        public static readonly Vector3 LVL_0_CHALLENGE_LOCAL_POS = new(2, 153, 0);
+        public static readonly Color NO_DIRECT_DAMAGE_CHALLENGE_TEXT_COLOR = new(0.69f, 0.08f, 0.3f);
+        public static readonly Vector3 FIRST_SUB_TITLE_LOCAL_POS = new(2, 153, 0);
+        public static readonly Vector3 SECOND_SUB_TITLE_LOCAL_POS = new(2, 177, 0);
     }
-    
     public static class EigongHealth
     {
         public const int EIGONG_PHASE_1_HEALTH_VALUE = 4444;
@@ -458,7 +461,7 @@ public static class PromisedEigongModGlobalSettings
         public const float EIGONG_POSTURE_DAMAGE_DR = 0.22f;
         public const float EIGONG_TAICHI_KICK_DAMAGE_DR = 0.5f;
         public const float EIGONG_COUNTER_JADE_DAMAGE_DR = 0.33f;
-        public const float EIGONG_FOO_DR = 0;
+        public const float EIGONG_FOO_DR = 1;
         public const float EIGONG_DEFAULT_DR = 0;
     }
     

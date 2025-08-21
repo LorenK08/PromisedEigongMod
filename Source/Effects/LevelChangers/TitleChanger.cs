@@ -13,9 +13,10 @@ public class TitleChanger : MonoBehaviour
 {
     PromisedEigongMain MainInstance => PromisedEigongMain.Instance;
     bool IsLevel0 => !Player.i.mainAbilities.RollDodgeInAirUpgrade.IsAcquired;
+    bool IsNoDirectDamageChallenge => PromisedEigongMain.isNoDirectDamageChallenge.Value;
     
     bool hasGotTitleReferences;
-    bool hasSpawnedLevel0Title;
+    bool hasSpawnedTitles;
     EigongWrapper eigongWrapper;
     GameObject titleObj;
     RubyTextMeshProUGUI titleText;
@@ -34,10 +35,15 @@ public class TitleChanger : MonoBehaviour
             hasGotTitleReferences = true;
         }
 
-        if (!hasSpawnedLevel0Title && IsLevel0)
+        if (!hasSpawnedTitles)
         {
-            SpawnLvl0ChallengeText(titleObj);
-            hasSpawnedLevel0Title = true;
+            if (IsLevel0)
+                SpawnLvl0ChallengeText(titleObj);
+            
+            if (IsNoDirectDamageChallenge)
+                SpawnNoDamageChallengeText(titleObj, IsLevel0);
+            
+            hasSpawnedTitles = true;
         }
     }
 
@@ -70,10 +76,20 @@ public class TitleChanger : MonoBehaviour
     {
         var newTitle = Instantiate(title, title.transform.parent);
         var newTitleComp = newTitle.GetComponent<RubyTextMeshProUGUI>();
-        newTitleComp.transform.localPosition = LVL_0_CHALLENGE_LOCAL_POS;
+        newTitleComp.transform.localPosition = FIRST_SUB_TITLE_LOCAL_POS;
         newTitleComp.text = LVL_O_CHALLENGE_TEXT;
         newTitleComp.fontSize = LVL_0_CHALLENGE_FONT_SIZE;
         newTitleComp.color = LVL_O_CHALLENGE_TEXT_COLOR;
+    }
+    
+    void SpawnNoDamageChallengeText (GameObject title, bool isSecondSubtitle)
+    {
+        var newTitle = Instantiate(title, title.transform.parent);
+        var newTitleComp = newTitle.GetComponent<RubyTextMeshProUGUI>();
+        newTitleComp.transform.localPosition = isSecondSubtitle ? SECOND_SUB_TITLE_LOCAL_POS : FIRST_SUB_TITLE_LOCAL_POS;
+        newTitleComp.text = NO_DIRECT_DAMAGE_CHALLENGE_TEXT;
+        newTitleComp.fontSize = NO_DIRECT_DAMAGE_CHALLENGE_FONT_SIZE;
+        newTitleComp.color = NO_DIRECT_DAMAGE_CHALLENGE_TEXT_COLOR;
     }
 
     void OnDestroy ()

@@ -48,7 +48,7 @@ You can download this mod via Thunderstore's Mod Manager and run it automaticall
 - 77% Damage Reduction against Thunder Buster Arrows.
 - 77% Damage Reduction against Cloud Piercer Arrows.
 - 66% Damage Reduction against Charged Attacks.
-- 33% Damage Reduction against any Internal Damage.
+- 22% Damage Reduction against any Internal Damage.
 - 50% Additional Damage Reduction against Tai-Chi Kicks and Skull Kicks
 - 33% Additional Damage Reduction against Unbound Counters if Divine Jade is equipped.
 - 22% Damage Reduction against the last hit of the Triple Slash attack if Qi Blade Jade is equipped.
@@ -116,5 +116,16 @@ classyy
 Adorn
 
 ## First Lvl 0 Clear
-???
-(Spot still open for the first lvl 0 clear)
+Adorn
+
+## First Pacifist Clear
+classyy
+
+## First Promised Eigong Prime Clear
+classyy
+
+## First Inner Promised Eigong Clear
+classyy
+
+## First Inner Promised Eigong Prime Clear
+Marcerys

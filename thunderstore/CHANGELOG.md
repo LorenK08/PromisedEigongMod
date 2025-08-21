@@ -1,8 +1,8 @@
 ## 1.1.2
-- Fix unintended debug message at the start of the fight.
+- Fixed unintended debug message at the start of the fight.
 
 ## 1.1.1
-- Sprite Flasher Fix: Now Eigong flashes her sprite as she used to in the original fight. It's strength can be adjustable in the config file settings.
+- Sprite Flasher Fix: Now Eigong flashes her sprite as she used to in the original fight. Its strength can be adjustable in the config file settings.
 - Added Hall of Fame in the Mod Description.
 
 ## 1.1.0

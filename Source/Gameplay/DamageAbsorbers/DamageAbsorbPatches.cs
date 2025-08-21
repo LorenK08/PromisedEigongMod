@@ -1,4 +1,6 @@
-﻿namespace PromisedEigong.DamageAbsorbers;
+﻿using PromisedEigong.ModSystem;
+
+namespace PromisedEigong.DamageAbsorbers;
 #nullable disable
 
 using HarmonyLib;
@@ -28,6 +30,13 @@ public class DamageAbsorbPatches
         
         if (dealer == null)
             return;
+        
+        bool isNoDirectDamageChallenge = PromisedEigongMain.isNoDirectDamageChallenge.Value;
+        bool isInternalDamageAtMax = __instance.InternalPercentage > 0.99f;
+        bool isFooExplodeDamage = dealer.detailType is EffectDetailType.FooExplode;
+        
+        if (isNoDirectDamageChallenge && (!isInternalDamageAtMax || !isFooExplodeDamage))
+            Player.i.Suicide();
         
         value *= GetReducedDirectDamage(dealer.detailType);
     }
