@@ -461,7 +461,7 @@ public static class PromisedEigongModGlobalSettings
         public const float EIGONG_POSTURE_DAMAGE_DR = 0.22f;
         public const float EIGONG_TAICHI_KICK_DAMAGE_DR = 0.5f;
         public const float EIGONG_COUNTER_JADE_DAMAGE_DR = 0.33f;
-        public const float EIGONG_FOO_DR = 1;
+        public const float EIGONG_FOO_DR = 0;
         public const float EIGONG_DEFAULT_DR = 0;
     }
     

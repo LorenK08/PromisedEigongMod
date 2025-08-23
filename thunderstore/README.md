@@ -85,6 +85,7 @@ The theme for Phase 3 is now replaced by the Nine Sols main theme.
 ## Challenge
 - **LVL0Challenge** : (STILL WIP) For now, all this does is make the fire damage more forgiving. Makes lvl 0 challenges a little more bearable. Full lvl 0 support coming soon.
 - **ShufflerChallenge** : Shuffles every attack transition as an added challenge to prevent AI manipulation.
+- **PacifistChallenge** : This challenge forces you to only deal internal damage against Eigong. Any direct damage inflicted will insta kill Yi.
 
 ## Debug
 - **AutoSkipHub** : Auto skip New Kunlun Control Hub if you're playing an Eigong save outside of MoB.

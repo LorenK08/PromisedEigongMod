@@ -1,3 +1,11 @@
+## 1.2.1
+- Fixed an unintentional 100% damage reduction on talismans
+- Updated the mod's description and changelog
+
+## 1.2.0
+- New Challenge: PacifistChallenge : This challenge forces you to only deal internal damage against Eigong. Any direct damage inflicted will insta kill Yi.
+- Fixed incorrect information on the mod's description
+
 ## 1.1.2
 - Fixed unintended debug message at the start of the fight.
 
