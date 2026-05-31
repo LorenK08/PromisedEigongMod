@@ -42,7 +42,7 @@ static class AttackFactoryWeightConfig
     {
         LoadIfNeeded();
 
-        if (HasNonEmptyJsonConfig() || defaultWeights.Count == 0)
+        if (ShouldPreserveExistingJsonConfig() || defaultWeights.Count == 0)
             return;
 
         try
@@ -101,9 +101,24 @@ static class AttackFactoryWeightConfig
             LoadTxt();
     }
 
-    static bool HasNonEmptyJsonConfig ()
+    static bool ShouldPreserveExistingJsonConfig ()
     {
-        return File.Exists(JsonPath) && new FileInfo(JsonPath).Length > 0;
+        if (!File.Exists(JsonPath))
+            return false;
+
+        var jsonText = File.ReadAllText(JsonPath);
+        if (string.IsNullOrWhiteSpace(jsonText))
+            return false;
+
+        try
+        {
+            var configFile = JsonUtility.FromJson<AttackFactoryWeightConfigFile>(jsonText);
+            return configFile?.weights is { Count: > 0 };
+        }
+        catch
+        {
+            return true;
+        }
     }
 
     static void LoadJson ()
