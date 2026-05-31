@@ -42,7 +42,7 @@ static class AttackFactoryWeightConfig
     {
         LoadIfNeeded();
 
-        if (File.Exists(JsonPath) || defaultWeights.Count == 0)
+        if (HasNonEmptyJsonConfig() || defaultWeights.Count == 0)
             return;
 
         try
@@ -99,6 +99,11 @@ static class AttackFactoryWeightConfig
 
         if (File.Exists(TxtPath))
             LoadTxt();
+    }
+
+    static bool HasNonEmptyJsonConfig ()
+    {
+        return File.Exists(JsonPath) && new FileInfo(JsonPath).Length > 0;
     }
 
     static void LoadJson ()
