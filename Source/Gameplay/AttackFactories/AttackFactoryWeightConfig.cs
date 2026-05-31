@@ -59,6 +59,31 @@ static class AttackFactoryWeightConfig
         }
     }
 
+    public static void Reload ()
+    {
+        configuredWeights.Clear();
+        hasLoaded = false;
+        LoadIfNeeded();
+    }
+
+    public static bool TryGetConfiguredWeight (string attack, int phase, AttackWeight attackWeight, out int weight)
+    {
+        weight = 0;
+
+        if (attackWeight.state == null)
+            return false;
+
+        var key = BuildKey(attack, phase, attackWeight.state.name);
+        if (!defaultWeights.TryGetValue(key, out var defaultWeight))
+            return false;
+
+        weight = configuredWeights.TryGetValue(key, out var configuredWeight) 
+            ? configuredWeight 
+            : defaultWeight.weight;
+
+        return true;
+    }
+
     static void LoadIfNeeded ()
     {
         if (hasLoaded)

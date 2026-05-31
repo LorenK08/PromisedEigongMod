@@ -15,6 +15,7 @@ using TMPro;
 using NineSolsAPI;
 using Effects;
 using System.Collections;
+using System.Collections.Generic;
 using SpeedChangers;
 using WeightChanges;
 using UnityEngine;
@@ -74,6 +75,7 @@ public class EigongWrapper : MonoBehaviour, ICoroutineRunner
     void Update ()
     {
         WaitForEigongInitialization();
+        HandleAttackFactoryWeightReload();
         bossPhaseProvider.HandleUpdateStep();
     }
     
@@ -229,6 +231,50 @@ public class EigongWrapper : MonoBehaviour, ICoroutineRunner
             var bossStateIdentifier = bossState.gameObject.AddComponent<BossStateIdentifier>();
             bossStateIdentifier.IdName = bossState.name;
         }
+    }
+
+    void HandleAttackFactoryWeightReload ()
+    {
+        if (!hasFinishedInitializing || !Input.GetKeyDown(KeyCode.F10))
+            return;
+
+        AttackFactoryWeightConfig.Reload();
+        var changedWeightCount = 0;
+        var modifiedBossStates = FindObjectsOfType<ModifiedBossGeneralState>();
+
+        foreach (var modifiedBossState in modifiedBossStates)
+        {
+            changedWeightCount += ApplyAttackFactoryWeights(modifiedBossState, 1, modifiedBossState.Phase1Weights);
+            changedWeightCount += ApplyAttackFactoryWeights(modifiedBossState, 2, modifiedBossState.Phase2Weights);
+            changedWeightCount += ApplyAttackFactoryWeights(modifiedBossState, 3, modifiedBossState.Phase3Weights);
+        }
+
+        ToastManager.Toast($"Attack factory weights reloaded ({changedWeightCount} weights).");
+    }
+
+    int ApplyAttackFactoryWeights (ModifiedBossGeneralState modifiedBossState, int phase, List<AttackWeight> attackWeights)
+    {
+        if (attackWeights == null)
+            return 0;
+
+        var changedWeightCount = 0;
+        for (var i = 0; i < attackWeights.Count; i++)
+        {
+            var attackWeight = attackWeights[i];
+            if (!AttackFactoryWeightConfig.TryGetConfiguredWeight(
+                    modifiedBossState.ModifiedName,
+                    phase,
+                    attackWeight,
+                    out var configuredWeight
+                ))
+                continue;
+
+            attackWeight.weight = configuredWeight;
+            attackWeights[i] = attackWeight;
+            changedWeightCount++;
+        }
+
+        return changedWeightCount;
     }
     
     void ChangeAttackSpeedsPhase1 (BossGeneralState[] allBossStates)
