@@ -215,6 +215,8 @@ public class EigongWrapper : MonoBehaviour, ICoroutineRunner
                 break;
             }
         }
+
+        AttackFactoryWeightConfig.WriteDefaultsIfNeeded();
         
         var attacksParent = GameObject.Find(STATES_PATH);
         attacksParent.AddComponent<ModifiedBossGeneralStateManager>();

@@ -10,6 +10,15 @@ public abstract class BaseAttackFactory
 
     public abstract void CopyAttack (BossGeneralState bossGeneralState);
 
+    protected AttackWeight CreateAttackWeight (BossGeneralState state, int phase, int defaultWeight)
+    {
+        return new AttackWeight
+        {
+            state = state,
+            weight = AttackFactoryWeightConfig.GetWeight(AttackToBeCreated, phase, state.name, defaultWeight)
+        };
+    }
+
     protected ModifiedBossGeneralState SetupAttack (BossGeneralState bossGeneralState, bool isNotAnAttack = false)
     {
         var attacksParent = GameObject.Find(isNotAnAttack ? STATES_PATH : ATTACK_PATH);

@@ -20,19 +20,11 @@ public class _26TeleportToBackSecondPokeChainFactory : BaseAttackFactory
         
         var phase2Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 2, 7)
         };
         var phase3Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 3, 7)
         };
         
         newAttack.Phase2Weights = phase2Weights;

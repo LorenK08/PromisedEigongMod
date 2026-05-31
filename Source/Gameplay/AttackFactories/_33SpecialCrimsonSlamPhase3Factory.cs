@@ -27,36 +27,12 @@ public class _33SpecialCrimsonSlamPhase3Factory : BaseAttackFactory
         
         var phase3Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack3NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack4NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack5NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack6NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 3, 7),
+            CreateAttackWeight(attack2NextMove, 3, 7),
+            CreateAttackWeight(attack3NextMove, 3, 7),
+            CreateAttackWeight(attack4NextMove, 3, 7),
+            CreateAttackWeight(attack5NextMove, 3, 7),
+            CreateAttackWeight(attack6NextMove, 3, 7)
         };
         
         newAttack.Phase3Weights = phase3Weights;

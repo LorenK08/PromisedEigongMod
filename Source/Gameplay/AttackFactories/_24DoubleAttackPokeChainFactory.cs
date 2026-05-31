@@ -23,30 +23,14 @@ public class _24DoubleAttackPokeChainFactory : BaseAttackFactory
         
         var phase1Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 3
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 1, 3),
+            CreateAttackWeight(attack2NextMove, 1, 7)
         };
         
         var phase2Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack2NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack3NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack2NextMove, 2, 7),
+            CreateAttackWeight(attack3NextMove, 2, 7)
         };
         
         newAttack.Phase1Weights = phase1Weights;

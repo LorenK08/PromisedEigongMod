@@ -25,35 +25,15 @@ public class _27ChargeWavePokeChainFactory : BaseAttackFactory
         
         var phase2Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 3
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 2, 3),
+            CreateAttackWeight(attack2NextMove, 2, 7)
         };
         
         var phase3Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack2NextMove,
-                weight = 3
-            },
-            new()
-            {
-                state = attack3NextMove,
-                weight = 6
-            },
-            new()
-            {
-                state = attack4NextMove,
-                weight = 5
-            }
+            CreateAttackWeight(attack2NextMove, 3, 3),
+            CreateAttackWeight(attack3NextMove, 3, 6),
+            CreateAttackWeight(attack4NextMove, 3, 5)
         };
         
         newAttack.Phase2Weights = phase2Weights;

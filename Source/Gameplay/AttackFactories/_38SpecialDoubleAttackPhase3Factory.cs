@@ -23,21 +23,9 @@ public class _38SpecialDoubleAttackFactory : BaseAttackFactory
         
         var phase2Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 3
-            },
-            new()
-            {
-                state = attack3NextMove,
-                weight = 3
-            }
+            CreateAttackWeight(attack1NextMove, 2, 7),
+            CreateAttackWeight(attack2NextMove, 2, 3),
+            CreateAttackWeight(attack3NextMove, 2, 3)
         };
         
         newAttack.Phase2Weights = phase2Weights;

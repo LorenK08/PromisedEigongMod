@@ -24,26 +24,10 @@ public class _40TeleportToBackComboPhase3Changer : BaseAttackFactory
         
         var phase1Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 2
-            },
-            new()
-            {
-                state = attack3NextMove,
-                weight = 2
-            },
-            new()
-            {
-                state = attack4NextMove,
-                weight = 4
-            }
+            CreateAttackWeight(attack1NextMove, 1, 7),
+            CreateAttackWeight(attack2NextMove, 1, 2),
+            CreateAttackWeight(attack3NextMove, 1, 2),
+            CreateAttackWeight(attack4NextMove, 1, 4)
         };
         
         newAttack.Phase1Weights = phase1Weights;

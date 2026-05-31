@@ -9,7 +9,7 @@ using static PromisedEigongModGlobalSettings.EigongSpeed;
 public class _36AlternateSlashUpCrimsonPokeChainFactory : BaseAttackFactory
 {
     public override string AttackToBeCopied => ATTACK12_SLASH_UP_CRIMSON;
-    public override string AttackToBeCreated => ATTACK25_NEW_CHAIN_SLASH_UP_CRIMSON;
+    public override string AttackToBeCreated => ATTACK36_NEW_CHAIN_ALTERNATE_SLASH_UP_CRIMSON;
 
     public override void CopyAttack (BossGeneralState bossGeneralState)
     {
@@ -22,16 +22,8 @@ public class _36AlternateSlashUpCrimsonPokeChainFactory : BaseAttackFactory
         
         var phase2Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 3
-            }
+            CreateAttackWeight(attack1NextMove, 2, 7),
+            CreateAttackWeight(attack2NextMove, 2, 3)
         };
         
         newAttack.Phase2Weights = phase2Weights;

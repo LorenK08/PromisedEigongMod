@@ -20,29 +20,17 @@ public class _22SlowStarterPokeChainFactory : BaseAttackFactory
         
         var phase1Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 1, 7)
         };
         
         var phase2Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 2, 7)
         };
         
         var phase3Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 3, 7)
         };
         
         newAttack.Phase1Weights = phase1Weights;

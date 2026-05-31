@@ -20,11 +20,7 @@ public class _39SpecialDAJumpBackPhase3Factory : BaseAttackFactory
         
         var phase3Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 3, 7)
         };
         
         newAttack.Phase3Weights = phase3Weights;

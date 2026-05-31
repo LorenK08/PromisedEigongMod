@@ -24,26 +24,10 @@ public class _28TeleportToBackComboPokeChainFactory : BaseAttackFactory
         
         var phase1Weights = new List<AttackWeight>
         {
-            new()
-            {
-                state = attack1NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack2NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack3NextMove,
-                weight = 7
-            },
-            new()
-            {
-                state = attack4NextMove,
-                weight = 7
-            }
+            CreateAttackWeight(attack1NextMove, 1, 7),
+            CreateAttackWeight(attack2NextMove, 1, 7),
+            CreateAttackWeight(attack3NextMove, 1, 7),
+            CreateAttackWeight(attack4NextMove, 1, 7)
         };
         
         newAttack.Phase1Weights = phase1Weights;
